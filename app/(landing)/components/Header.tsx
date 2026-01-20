@@ -93,11 +93,14 @@ export function Header() {
         <div className="flex items-center">
           <Button
             variant="text"
-            className="flex items-center gap-2 uppercase tracking-wide text-sm font-medium"
+            className="flex items-center gap-2 uppercase tracking-wide text-sm font-medium group relative hover:text-[var(--color-golden)] transition-all duration-300"
             onClick={() => setIsAuthModalOpen(true)}
           >
-            <User className="h-5 w-5" />
-            Вход
+            <User className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
+            <span className="relative">
+              Вход
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--color-golden)] transition-all duration-300 group-hover:w-full" />
+            </span>
           </Button>
         </div>
       </div>
