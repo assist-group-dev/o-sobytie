@@ -25,7 +25,7 @@ export function Hero() {
           <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-6">
             О!СОБЫТИЕ — ваша ежемесячная порция "Вау!"
           </h1>
-          <p className="text-xl lg:text-2xl text-gray-600 mb-8 font-light">
+          <p className="text-xl lg:text-2xl text-[var(--foreground)]/60 mb-8 font-light">
             Надоела рутина? Подари себе О!Событие — коробку с уникальным впечатлением, 
             которое приходит к вам раз в месяц. Откройте и скажите "О!"
           </p>

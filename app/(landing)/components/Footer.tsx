@@ -30,14 +30,14 @@ export function Footer() {
 
   return (
     <>
-      <footer className="bg-[var(--background)] border-t border-gray-100 pt-16 pb-8">
+      <footer className="bg-[var(--background)] border-t border-[var(--color-cream)]/30 dark:border-[var(--color-cream)]/20 pt-16 pb-8">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             <div className="md:col-span-1">
               <Link href="/" className="inline-block mb-6">
                 <Logo className="text-4xl" />
               </Link>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-[var(--foreground)]/50">
                 © 2024 О!СОБЫТИЕ
                 <br />
                 Все права защищены.
@@ -46,7 +46,7 @@ export function Footer() {
             
             <div>
               <h4 className="font-bold uppercase mb-4 tracking-wider text-sm">О нас</h4>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <ul className="space-y-2 text-sm text-[var(--foreground)]/60">
                 <li>
                   <button
                     onClick={() => openModal("about-project")}
@@ -84,21 +84,13 @@ export function Footer() {
             
             <div>
               <h4 className="font-bold uppercase mb-4 tracking-wider text-sm">Клиентам</h4>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <ul className="space-y-2 text-sm text-[var(--foreground)]/60">
                 <li>
                   <button
                     onClick={() => openModal("delivery")}
                     className="hover:text-[var(--color-golden)] transition-colors text-left"
                   >
                     Доставка и оплата
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => openModal("faq")}
-                    className="hover:text-[var(--color-golden)] transition-colors text-left"
-                  >
-                    Вопросы и ответы
                   </button>
                 </li>
                 <li>
@@ -123,15 +115,15 @@ export function Footer() {
             <div>
               <h4 className="font-bold uppercase mb-4 tracking-wider text-sm">Мы в соцсетях</h4>
               <div className="flex gap-4">
-                <Link href="#" className="p-2 bg-gray-100 hover:bg-[var(--color-golden)] hover:text-white transition-colors">
+                <Link href="#" className="p-2 bg-[var(--color-cream)]/30 dark:bg-[var(--color-cream)]/20 hover:bg-[var(--color-golden)] hover:text-white transition-colors">
                   <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                   </svg>
                 </Link>
-                <Link href="#" className="p-2 bg-gray-100 hover:bg-[var(--color-golden)] hover:text-white transition-colors">
+                <Link href="#" className="p-2 bg-[var(--color-cream)]/30 dark:bg-[var(--color-cream)]/20 hover:bg-[var(--color-golden)] hover:text-white transition-colors">
                   <Send className="h-5 w-5" />
                 </Link>
-                <Link href="#" className="p-2 bg-gray-100 hover:bg-[var(--color-golden)] hover:text-white transition-colors">
+                <Link href="#" className="p-2 bg-[var(--color-cream)]/30 dark:bg-[var(--color-cream)]/20 hover:bg-[var(--color-golden)] hover:text-white transition-colors">
                   <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
                   </svg>
@@ -140,7 +132,7 @@ export function Footer() {
             </div>
           </div>
         
-        <div className="text-center text-xs text-gray-400 pt-8 border-t border-gray-100">
+        <div className="text-center text-xs text-[var(--foreground)]/40 pt-8 border-t border-[var(--color-cream)]/30 dark:border-[var(--color-cream)]/20">
           Сделано с любовью к впечатлениям
         </div>
       </div>
@@ -149,7 +141,7 @@ export function Footer() {
     <Modal isOpen={activeModal === "about-project"} onClose={closeModal}>
       <div className="p-8">
         <h2 className="text-2xl font-bold mb-6">О проекте</h2>
-        <div className="prose prose-sm max-w-none text-gray-700 space-y-4">
+        <div className="prose prose-sm max-w-none text-[var(--foreground)]/80 space-y-4">
           <p>
             О!СОБЫТИЕ — это уникальный проект, который дарит вам ежемесячную порцию незабываемых впечатлений. 
             Каждый месяц мы тщательно отбираем и упаковываем в коробку особое событие, которое способно 
@@ -171,7 +163,7 @@ export function Footer() {
     <Modal isOpen={activeModal === "team"} onClose={closeModal}>
       <div className="p-8">
         <h2 className="text-2xl font-bold mb-6">Команда</h2>
-        <div className="prose prose-sm max-w-none text-gray-700 space-y-4">
+        <div className="prose prose-sm max-w-none text-[var(--foreground)]/80 space-y-4">
           <p>
             О!СОБЫТИЕ создается командой энтузиастов, которые искренне верят в силу впечатлений и эмоций. 
             Мы объединили профессионалов из разных сфер: от event-менеджмента до маркетинга и дизайна.
@@ -192,7 +184,7 @@ export function Footer() {
     <Modal isOpen={activeModal === "vacancies"} onClose={closeModal}>
       <div className="p-8">
         <h2 className="text-2xl font-bold mb-6">Вакансии</h2>
-        <div className="prose prose-sm max-w-none text-gray-700 space-y-4">
+        <div className="prose prose-sm max-w-none text-[var(--foreground)]/80 space-y-4">
           <p>
             Мы всегда рады талантливым и увлеченным людям, которые разделяют нашу страсть к созданию 
             незабываемых впечатлений. Если вы хотите стать частью команды О!СОБЫТИЕ, мы будем рады 
@@ -216,7 +208,7 @@ export function Footer() {
     <Modal isOpen={activeModal === "contacts"} onClose={closeModal}>
       <div className="p-8">
         <h2 className="text-2xl font-bold mb-6">Контакты</h2>
-        <div className="prose prose-sm max-w-none text-gray-700 space-y-6">
+        <div className="prose prose-sm max-w-none text-[var(--foreground)]/80 space-y-6">
           <div>
             <p className="font-semibold mb-2">Электронная почта:</p>
             <p>
@@ -248,7 +240,7 @@ export function Footer() {
     <Modal isOpen={activeModal === "delivery"} onClose={closeModal}>
       <div className="p-8">
         <h2 className="text-2xl font-bold mb-6">Доставка и оплата</h2>
-        <div className="prose prose-sm max-w-none text-gray-700 space-y-6">
+        <div className="prose prose-sm max-w-none text-[var(--foreground)]/80 space-y-6">
           <div>
             <h3 className="font-semibold text-lg mb-3">Способы доставки</h3>
             <p>
@@ -282,7 +274,7 @@ export function Footer() {
     <Modal isOpen={activeModal === "faq"} onClose={closeModal}>
       <div className="p-8">
         <h2 className="text-2xl font-bold mb-6">Вопросы и ответы</h2>
-        <div className="prose prose-sm max-w-none text-gray-700 space-y-6">
+        <div className="prose prose-sm max-w-none text-[var(--foreground)]/80 space-y-6">
           <div>
             <h3 className="font-semibold text-lg mb-2">Как часто приходят коробки?</h3>
             <p>
@@ -325,7 +317,7 @@ export function Footer() {
     <Modal isOpen={activeModal === "privacy"} onClose={closeModal}>
       <div className="p-8">
         <h2 className="text-2xl font-bold mb-6">Политика конфиденциальности</h2>
-        <div className="prose prose-sm max-w-none text-gray-700 space-y-4">
+        <div className="prose prose-sm max-w-none text-[var(--foreground)]/80 space-y-4">
           <p>
             О!СОБЫТИЕ обязуется защищать конфиденциальность персональных данных пользователей. 
             Настоящая Политика конфиденциальности описывает, как мы собираем, используем и защищаем 
@@ -371,7 +363,7 @@ export function Footer() {
               </a>.
             </p>
           </div>
-          <p className="mt-6 text-sm text-gray-500">
+          <p className="mt-6 text-sm text-[var(--foreground)]/50">
             Последнее обновление: {new Date().toLocaleDateString("ru-RU", { year: "numeric", month: "long", day: "numeric" })}
           </p>
         </div>
@@ -381,7 +373,7 @@ export function Footer() {
     <Modal isOpen={activeModal === "offer"} onClose={closeModal}>
       <div className="p-8">
         <h2 className="text-2xl font-bold mb-6">Публичная оферта</h2>
-        <div className="prose prose-sm max-w-none text-gray-700 space-y-4">
+        <div className="prose prose-sm max-w-none text-[var(--foreground)]/80 space-y-4">
           <p>
             Настоящий документ является публичной офертой (далее — «Оферта») на заключение договора 
             оказания услуг на условиях, изложенных ниже.
@@ -429,7 +421,7 @@ export function Footer() {
               все усилия для своевременной доставки.
             </p>
           </div>
-          <p className="mt-6 text-sm text-gray-500">
+          <p className="mt-6 text-sm text-[var(--foreground)]/50">
             Оформляя заказ, вы подтверждаете, что ознакомились и согласны с условиями настоящей Оферты.
           </p>
         </div>

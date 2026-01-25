@@ -7,7 +7,7 @@ export function CTA() {
         <h2 className="text-3xl lg:text-5xl font-bold mb-6">
           Мы продаём не разовое событие, а ежемесячное ожидание счастья.
         </h2>
-        <p className="text-xl text-gray-700 mb-10 max-w-2xl mx-auto">
+        <p className="text-xl text-[var(--foreground)]/80 mb-10 max-w-2xl mx-auto">
           Клиент платит абонентскую плату и каждый месяц получает «коробку» — готовое впечатление, 
           которое он может пережить сам, в паре или с друзьями.
         </p>

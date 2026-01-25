@@ -10,6 +10,16 @@
   --color-cream-light: #f7f0e8;
 }
 
+.dark {
+  --background: #1a1614;
+  --foreground: #f5efe6;
+  --color-peach: #6b5248;
+  --color-peach-light: #4a3f38;
+  --color-golden: #d4b878;
+  --color-cream: #2a241f;
+  --color-cream-light: #1f1b18;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

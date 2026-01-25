@@ -54,14 +54,14 @@ export function Modal({ isOpen, onClose, children, className }: ModalProps) {
       />
       <div
         className={cn(
-          "relative bg-[var(--background)] border border-gray-200 max-w-2xl w-full zoom-in-95 max-h-[90vh] flex flex-col",
+          "relative bg-[var(--background)] border border-[var(--color-cream)]/30 dark:border-[var(--color-cream)]/20 max-w-2xl w-full zoom-in-95 max-h-[90vh] flex flex-col",
           className
         )}
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 hover:bg-gray-100 transition-colors z-10"
+          className="absolute top-4 right-4 p-2 hover:bg-[var(--color-cream)] dark:hover:bg-[var(--color-cream)]/30 transition-colors z-10"
           aria-label="Закрыть"
         >
           <X className="h-5 w-5" />

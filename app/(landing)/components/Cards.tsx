@@ -20,9 +20,9 @@ interface Tariff {
 const TARIFFS: Tariff[] = [
   {
     id: "solo",
-    title: "СОЛО",
-    description: "Для тех, кто хочет посвятить время себе. Уникальные впечатления для одного.",
-    fullDescription: "Идеальный тариф для тех, кто ценит время наедине с собой. Каждый месяц вы получаете коробку с уникальным впечатлением, которое поможет вам отдохнуть, расслабиться и открыть что-то новое в себе.",
+    title: "Лайт",
+    description: "Базовый тариф с самыми важными впечатлениями. Идеально для начала.",
+    fullDescription: "Лайт — это идеальный выбор для тех, кто только начинает свой путь к незабываемым моментам. Каждый месяц вы получаете коробку с тщательно отобранным впечатлением, которое поможет вам открыть что-то новое и получить максимум удовольствия без лишних затрат.",
     price: "от 2 990 ₽/мес",
     image: "/boxes/Box_2.jpg",
     features: ["1 персона", "Самопознание", "Релакс"],
@@ -36,9 +36,9 @@ const TARIFFS: Tariff[] = [
   },
   {
     id: "duet",
-    title: "ДУЭТ",
-    description: "Романтика или приключение для двоих. Идеально для пар и лучших друзей.",
-    fullDescription: "Создавайте незабываемые моменты вместе. Каждый месяц — новое приключение для двоих: от романтических ужинов до активных квестов. Идеально для пар, которые хотят разнообразить отношения, и для друзей, ищущих совместные впечатления.",
+    title: "Премиум",
+    description: "Расширенный набор впечатлений для двоих. Больше возможностей и эмоций.",
+    fullDescription: "Премиум — это выбор для тех, кто ценит качество и разнообразие. Каждый месяц вас ждут уникальные впечатления для двоих: от изысканных романтических ужинов до захватывающих приключений. Больше активностей, больше эмоций, больше незабываемых моментов вместе.",
     price: "от 4 990 ₽/мес",
     image: "/boxes/Box_1.jpg",
     features: ["2 персоны", "Романтика", "Совместный опыт"],
@@ -52,9 +52,9 @@ const TARIFFS: Tariff[] = [
   },
   {
     id: "party",
-    title: "КОМПАНИЯ",
-    description: "Веселье и драйв для компании друзей. Настолки, квесты и активности.",
-    fullDescription: "Веселье для всей компании! Каждый месяц — новая коробка с активностями для друзей: настольные игры, квесты, мастер-классы и многое другое. Идеально для тех, кто любит проводить время в кругу близких.",
+    title: "Люкс",
+    description: "Максимальный уровень впечатлений. Эксклюзивные события для особых моментов.",
+    fullDescription: "Люкс — это премиальный опыт для тех, кто не ищет компромиссов. Каждый месяц вас ждут эксклюзивные впечатления премиум-класса: уникальные мастер-классы, VIP-события, изысканные активности и многое другое. Максимум внимания к деталям и незабываемые моменты высшего уровня.",
     price: "от 6 990 ₽/мес",
     image: "/boxes/Box_3.jpg",
     features: ["До 6 персон", "Вечеринки", "Активный отдых"],
@@ -84,7 +84,7 @@ export function Cards() {
               className="group cursor-pointer"
               onClick={() => setSelectedTariff(tariff)}
             >
-              <div className="relative aspect-square mb-6 overflow-hidden bg-gray-100">
+              <div className="relative aspect-square mb-6 overflow-hidden bg-[var(--color-cream)]/30 dark:bg-[var(--color-cream)]/20">
                 <Image
                   src={tariff.image}
                   alt={tariff.title}
@@ -101,10 +101,10 @@ export function Cards() {
               <div className="space-y-3">
                 <div className="flex justify-between items-start">
                   <h3 className="text-xl font-bold uppercase">{tariff.title}</h3>
-                  <span className="text-sm font-medium text-gray-500">{tariff.price}</span>
+                  <span className="text-sm font-medium text-[var(--foreground)]/50">{tariff.price}</span>
                 </div>
                 
-                <p className="text-sm text-gray-600 line-clamp-2">
+                <p className="text-sm text-[var(--foreground)]/60 line-clamp-2">
                   {tariff.description}
                 </p>
                 
@@ -140,7 +140,7 @@ export function Cards() {
                   <span className="text-xl font-bold text-[var(--color-golden)]">{selectedTariff.price}</span>
                 </div>
 
-                <p className="text-lg text-gray-700 mb-6">{selectedTariff.fullDescription}</p>
+                <p className="text-lg text-[var(--foreground)]/80 mb-6">{selectedTariff.fullDescription}</p>
 
                 <div className="mb-6">
                   <h3 className="text-sm font-bold uppercase tracking-wider mb-3">Что входит:</h3>
@@ -148,14 +148,14 @@ export function Cards() {
                     {selectedTariff.details.map((detail, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <Check className="h-5 w-5 text-[var(--color-golden)] flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{detail}</span>
+                        <span className="text-[var(--foreground)]/80">{detail}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-4 pt-4 border-t border-gray-200 mt-auto">
+              <div className="flex flex-wrap gap-4 pt-4 border-t border-[var(--color-cream)]/30 dark:border-[var(--color-cream)]/20 mt-auto">
                 <Button 
                   size="lg" 
                   className="uppercase tracking-widest flex-1 min-w-[200px] group/btn transition-all duration-300 hover:scale-105 hover:shadow-lg"
@@ -174,7 +174,7 @@ export function Cards() {
             </div>
 
             <div className="relative h-full min-h-[400px] lg:min-h-[500px] p-8 lg:col-span-2">
-              <div className="relative h-full w-full overflow-hidden bg-gray-100">
+              <div className="relative h-full w-full overflow-hidden bg-[var(--color-cream)]/30 dark:bg-[var(--color-cream)]/20">
                 <Image
                   src={selectedTariff.image}
                   alt={selectedTariff.title}

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { User, Menu } from "lucide-react";
 import { Logo } from "@/ui/components/Logo";
 import { Button } from "@/ui/components/Button";
+import { ThemeToggle } from "@/ui/components/ThemeToggle";
 import { AuthModal } from "./AuthModal";
 import { useState, useEffect } from "react";
 import { cn } from "@/utils/cn";
@@ -11,7 +12,6 @@ import { cn } from "@/utils/cn";
 const NAV_LINKS = [
   { href: "#tariffs", label: "Тарифы" },
   { href: "#how-it-works", label: "Как это работает" },
-  { href: "#reviews", label: "Отзывы" },
   { href: "#faq", label: "FAQ" },
 ];
 
@@ -53,8 +53,8 @@ export function Header() {
       className={cn(
         "sticky top-0 z-50 border-b transition-all duration-300",
         isScrolled
-          ? "bg-[var(--background)]/95 backdrop-blur-md border-gray-100 shadow-sm"
-          : "bg-[var(--background)]/80 backdrop-blur-sm border-gray-100/50"
+          ? "bg-[var(--background)]/95 backdrop-blur-md border-[var(--color-cream)]/30 dark:border-[var(--color-cream)]/20 shadow-sm"
+          : "bg-[var(--background)]/80 backdrop-blur-sm border-[var(--color-cream)]/20 dark:border-[var(--color-cream)]/10"
       )}
     >
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
@@ -90,7 +90,8 @@ export function Header() {
         </nav>
 
         {/* Actions */}
-        <div className="flex items-center">
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
           <Button
             variant="text"
             className="flex items-center gap-2 uppercase tracking-wide text-sm font-medium group relative hover:text-[var(--color-golden)] transition-all duration-300"
@@ -107,7 +108,7 @@ export function Header() {
 
       {/* Mobile Navigation */}
       <div className={cn(
-        "lg:hidden absolute top-16 left-0 w-full bg-[var(--background)] border-b border-gray-100 overflow-hidden transition-all duration-300 ease-in-out",
+        "lg:hidden absolute top-16 left-0 w-full bg-[var(--background)] border-b border-[var(--color-cream)]/30 dark:border-[var(--color-cream)]/20 overflow-hidden transition-all duration-300 ease-in-out",
         isMenuOpen ? "max-h-64" : "max-h-0"
       )}>
         <nav className="flex flex-col p-4">
@@ -116,7 +117,7 @@ export function Header() {
               key={link.href}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className="py-3 text-sm font-medium hover:text-[var(--color-golden)] transition-all duration-300 uppercase tracking-wide border-b border-gray-50 last:border-0 transform hover:translate-x-2"
+              className="py-3 text-sm font-medium hover:text-[var(--color-golden)] transition-all duration-300 uppercase tracking-wide border-b border-[var(--color-cream)]/20 dark:border-[var(--color-cream)]/10 last:border-0 transform hover:translate-x-2"
               style={{
                 animation: `fadeInLeft 0.3s ease-out ${index * 0.05}s both`,
               }}

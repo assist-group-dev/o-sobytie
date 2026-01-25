@@ -4,8 +4,11 @@ import { useEffect, useState } from "react";
 import { Header } from "./(landing)/components/Header";
 import { Hero } from "./(landing)/components/Hero";
 import { Cards } from "./(landing)/components/Cards";
+import { HowItWorks } from "./(landing)/components/HowItWorks";
+import { FAQ } from "./(landing)/components/FAQ";
 import { CTA } from "./(landing)/components/CTA";
 import { Footer } from "./(landing)/components/Footer";
+import { FloatingContactButton } from "./(landing)/components/FloatingContactButton";
 import { LoadingOverlay } from "@/ui/components/LoadingOverlay";
 
 export default function LandingPage() {
@@ -89,35 +92,23 @@ export default function LandingPage() {
           <Cards />
         </div>
         
-        <section
-          id="how-it-works"
-          className="py-20 bg-[var(--background)]"
+        <div
           style={{
             opacity: isLoaded ? 1 : 0,
             animation: isLoaded ? `fadeInDown 0.6s ease-out 0.3s both` : "none",
           }}
         >
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-12 uppercase tracking-wider text-center">
-              Как это работает
-            </h2>
-          </div>
-        </section>
+          <HowItWorks />
+        </div>
         
-        <section
-          id="reviews"
-          className="py-20 bg-[var(--color-cream-light)]"
+        <div
           style={{
             opacity: isLoaded ? 1 : 0,
             animation: isLoaded ? `fadeInDown 0.6s ease-out 0.4s both` : "none",
           }}
         >
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-12 uppercase tracking-wider text-center">
-              Отзывы
-            </h2>
-          </div>
-        </section>
+          <CTA />
+        </div>
         
         <div
           style={{
@@ -125,33 +116,19 @@ export default function LandingPage() {
             animation: isLoaded ? `fadeInDown 0.6s ease-out 0.5s both` : "none",
           }}
         >
-          <CTA />
+          <FAQ />
         </div>
         
-        <section
-          id="faq"
-          className="py-20 bg-[var(--background)]"
+        <div
           style={{
             opacity: isLoaded ? 1 : 0,
             animation: isLoaded ? `fadeInDown 0.6s ease-out 0.6s both` : "none",
           }}
         >
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-12 uppercase tracking-wider text-center">
-              FAQ
-            </h2>
-          </div>
-        </section>
-        
-        <div
-          style={{
-            opacity: isLoaded ? 1 : 0,
-            animation: isLoaded ? `fadeInDown 0.6s ease-out 0.7s both` : "none",
-          }}
-        >
           <Footer />
         </div>
       </div>
+      {isLoaded && <FloatingContactButton />}
     </>
   );
 }

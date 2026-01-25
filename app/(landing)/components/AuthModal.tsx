@@ -16,14 +16,14 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
   return (
     <Modal isOpen={isOpen} onClose={onClose} className="max-w-md">
       <div className="p-8">
-        <div className="flex gap-4 mb-6 border-b border-gray-200">
+        <div className="flex gap-4 mb-6 border-b border-[var(--color-cream)]/30 dark:border-[var(--color-cream)]/20">
           <button
             onClick={() => setAuthMode("login")}
             className={cn(
               "pb-3 px-2 text-sm font-medium transition-colors",
               authMode === "login"
                 ? "text-[var(--color-golden)] border-b-2 border-[var(--color-golden)]"
-                : "text-gray-500 hover:text-gray-700"
+                : "text-[var(--foreground)]/50 hover:text-[var(--foreground)]/70"
             )}
           >
             Вход
@@ -34,7 +34,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
               "pb-3 px-2 text-sm font-medium transition-colors",
               authMode === "register"
                 ? "text-[var(--color-golden)] border-b-2 border-[var(--color-golden)]"
-                : "text-gray-500 hover:text-gray-700"
+                : "text-[var(--foreground)]/50 hover:text-[var(--foreground)]/70"
             )}
           >
             Регистрация
@@ -56,7 +56,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 id="login-email"
                 type="email"
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-golden)] focus:border-transparent"
+                className="w-full px-4 py-2 border border-[var(--color-cream)]/40 dark:border-[var(--color-cream)]/30 rounded-md bg-[var(--background)] text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--color-golden)] focus:border-transparent"
                 placeholder="your@email.com"
               />
             </div>
@@ -68,7 +68,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 id="login-password"
                 type="password"
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-golden)] focus:border-transparent"
+                className="w-full px-4 py-2 border border-[var(--color-cream)]/40 dark:border-[var(--color-cream)]/30 rounded-md bg-[var(--background)] text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--color-golden)] focus:border-transparent"
                 placeholder="••••••••"
               />
             </div>
@@ -91,7 +91,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 id="register-name"
                 type="text"
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-golden)] focus:border-transparent"
+                className="w-full px-4 py-2 border border-[var(--color-cream)]/40 dark:border-[var(--color-cream)]/30 rounded-md bg-[var(--background)] text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--color-golden)] focus:border-transparent"
                 placeholder="Ваше имя"
               />
             </div>
@@ -103,7 +103,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 id="register-email"
                 type="email"
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-golden)] focus:border-transparent"
+                className="w-full px-4 py-2 border border-[var(--color-cream)]/40 dark:border-[var(--color-cream)]/30 rounded-md bg-[var(--background)] text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--color-golden)] focus:border-transparent"
                 placeholder="your@email.com"
               />
             </div>
@@ -115,7 +115,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 id="register-password"
                 type="password"
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-golden)] focus:border-transparent"
+                className="w-full px-4 py-2 border border-[var(--color-cream)]/40 dark:border-[var(--color-cream)]/30 rounded-md bg-[var(--background)] text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--color-golden)] focus:border-transparent"
                 placeholder="••••••••"
               />
             </div>
@@ -127,7 +127,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 id="register-password-confirm"
                 type="password"
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-golden)] focus:border-transparent"
+                className="w-full px-4 py-2 border border-[var(--color-cream)]/40 dark:border-[var(--color-cream)]/30 rounded-md bg-[var(--background)] text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--color-golden)] focus:border-transparent"
                 placeholder="••••••••"
               />
             </div>
