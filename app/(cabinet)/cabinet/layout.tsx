@@ -36,7 +36,7 @@ function CabinetLayoutContent({ children }: CabinetLayoutProps) {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--background)] relative">
+    <div className="min-h-screen bg-[var(--color-peach)]/10 relative">
       <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--background)]/95 backdrop-blur-md border-b border-[var(--color-cream)]/30 dark:border-[var(--color-cream)]/20 shadow-sm">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between h-10">
@@ -50,8 +50,8 @@ function CabinetLayoutContent({ children }: CabinetLayoutProps) {
 
       <div className="pt-16 pb-6">
         <div className="flex relative">
-          <aside className="fixed left-64 top-1/2 -translate-y-1/2 w-72 h-[450px] shrink-0 rounded-xl shadow-lg border border-[var(--color-cream)]/30 dark:border-[var(--color-cream)]/20 bg-[var(--background)]/95 backdrop-blur-sm overflow-hidden z-40 flex flex-col">
-            <div className="p-4 border-b border-[var(--color-cream)]/30 dark:border-[var(--color-cream)]/20">
+          <aside className="fixed left-64 top-1/2 -translate-y-1/2 w-80 h-[450px] shrink-0 rounded-xl shadow-lg border border-[var(--color-cream)]/30 dark:border-[var(--color-cream)]/20 bg-[var(--background)]/95 backdrop-blur-sm overflow-hidden z-40 flex flex-col">
+            <div className="p-3 border-b border-[var(--color-cream)]/30 dark:border-[var(--color-cream)]/20">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-full bg-[var(--color-cream)]/30 dark:bg-[var(--color-cream)]/20 flex items-center justify-center shrink-0">
                   <User className="h-6 w-6 text-[var(--color-golden)]" />
@@ -64,7 +64,7 @@ function CabinetLayoutContent({ children }: CabinetLayoutProps) {
             </div>
 
             <ScrollArea className="flex-1">
-              <div className="p-4 space-y-1">
+              <div className="p-3 space-y-1">
                 {navigation.map((item) => {
                   const Icon = item.icon;
                   const isActive =
@@ -92,11 +92,11 @@ function CabinetLayoutContent({ children }: CabinetLayoutProps) {
               </div>
             </ScrollArea>
 
-            <div className="p-4 border-t border-[var(--color-cream)]/30 dark:border-[var(--color-cream)]/20">
+            <div className="p-3 border-t border-[var(--color-cream)]/30 dark:border-[var(--color-cream)]/20">
               <form onSubmit={handlePromoSubmit} className="space-y-2">
                 <p className="text-xs font-medium text-[var(--foreground)]/70 mb-2 flex items-center gap-1">
                   <Ticket className="h-3 w-3" />
-                  Есть промо код
+                  Есть промо код?
                 </p>
                 <div className="flex gap-2">
                   <input
@@ -124,7 +124,7 @@ function CabinetLayoutContent({ children }: CabinetLayoutProps) {
             </div>
           </aside>
 
-          <main className="flex-1 min-w-0 ml-[calc(18rem+1rem)] mr-4 pt-[calc(50vh-320px)]">
+          <main className="flex-1 min-w-0 ml-[calc(20rem+1rem+2rem)] mr-4 pt-[calc(50vh-360px)]">
             <div className="max-w-6xl mx-auto">{children}</div>
           </main>
         </div>

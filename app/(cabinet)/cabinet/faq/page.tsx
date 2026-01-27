@@ -111,28 +111,28 @@ export default function FAQPage() {
   };
 
   return (
-    <div className="space-y-6 p-6">
-      <div className="flex flex-col lg:flex-row gap-6">
+    <div className="space-y-8 p-8">
+      <div className="flex flex-col lg:flex-row gap-8">
         <aside className="lg:w-1/3 flex-shrink-0">
-          <Card className="p-4">
-            <div className="space-y-2">
+          <Card className="p-6">
+            <div className="space-y-3">
               {CATEGORIES.map((category) => {
                 const categoryItems = FAQ_ITEMS.filter((item) => item.category === category);
                 const isOpen = openCategory === category;
                 const maxHeight = categoryItems.length * 60 + 20;
                 return (
-                  <div key={category} className="mb-4">
+                  <div key={category} className="mb-6">
                     <button
                       onClick={() => handleCategoryToggle(category)}
                       className={cn(
-                        "w-full flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-200 group",
+                        "w-full flex items-center justify-between px-5 py-4 rounded-lg transition-all duration-200 group",
                         "hover:bg-[var(--color-cream)]/30 dark:hover:bg-[var(--color-cream)]/20",
                         isOpen
                           ? "bg-[var(--color-cream)]/40 dark:bg-[var(--color-cream)]/30"
                           : "bg-transparent"
                       )}
                     >
-                      <h3 className="text-sm font-bold uppercase tracking-wider text-[var(--foreground)]/80">
+                      <h3 className="text-base font-bold uppercase tracking-wider text-[var(--foreground)]/80">
                         {category}
                       </h3>
                       <ChevronRight
@@ -151,20 +151,20 @@ export default function FAQPage() {
                         maxHeight: isOpen ? `${maxHeight}px` : "0px",
                       }}
                     >
-                      <div className="pt-2 space-y-1">
+                      <div className="pt-3 space-y-2">
                         {categoryItems.map((item) => (
                           <button
                             key={item.id}
                             onClick={() => setSelectedId(item.id)}
                             className={cn(
-                              "w-full text-left px-4 py-3 rounded-lg transition-all duration-200",
+                              "w-full text-left px-5 py-4 rounded-lg transition-all duration-200",
                               "hover:bg-[var(--color-cream)]/30 dark:hover:bg-[var(--color-cream)]/20",
                               selectedId === item.id
                                 ? "bg-[var(--color-cream)]/40 dark:bg-[var(--color-cream)]/30 text-[var(--color-golden)] font-medium"
                                 : "text-[var(--foreground)]/70 hover:text-[var(--foreground)]"
                             )}
                           >
-                            <span className="text-sm leading-snug">{item.question}</span>
+                            <span className="text-base leading-snug">{item.question}</span>
                           </button>
                         ))}
                       </div>
@@ -177,19 +177,19 @@ export default function FAQPage() {
         </aside>
 
         <main className="lg:w-2/3 flex-1">
-          <Card>
-            <div className="mb-4">
-              <span className="inline-block px-3 py-1 text-xs font-bold uppercase tracking-wider bg-[var(--color-golden)]/20 text-[var(--color-golden)] rounded-full">
+          <Card className="p-8">
+            <div className="mb-6">
+              <span className="inline-block px-4 py-2 text-sm font-bold uppercase tracking-wider bg-[var(--color-golden)]/20 text-[var(--color-golden)] rounded-full">
                 {selectedItem.category}
               </span>
             </div>
-            <h3 className="text-2xl font-bold mb-6 leading-tight">
+            <h3 className="text-3xl font-bold mb-8 leading-tight">
               {selectedItem.question}
             </h3>
             <div className="prose prose-lg max-w-none">
               <p
                 key={selectedId}
-                className="text-[var(--foreground)]/80 leading-relaxed text-base animate-in fade-in duration-300"
+                className="text-[var(--foreground)]/80 leading-relaxed text-lg animate-in fade-in duration-300"
               >
                 {selectedItem.answer}
               </p>
