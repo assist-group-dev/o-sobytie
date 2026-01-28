@@ -11,9 +11,36 @@ export function Hero() {
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
-      video.play().catch(() => {
-        // Автовоспроизведение может быть заблокировано браузером
-      });
+      const handleCanPlay = () => {
+        setIsVideoLoaded(true);
+        video.play().catch(() => {
+          // Автовоспроизведение может быть заблокировано браузером
+        });
+      };
+
+      const handleLoadedData = () => {
+        setIsVideoLoaded(true);
+      };
+
+      const handleError = () => {
+        console.error("Ошибка загрузки видео");
+        setIsVideoLoaded(true);
+      };
+
+      if (video.readyState >= 3) {
+        setIsVideoLoaded(true);
+        video.play().catch(() => {});
+      } else {
+        video.addEventListener("canplay", handleCanPlay, { once: true });
+        video.addEventListener("loadeddata", handleLoadedData, { once: true });
+        video.addEventListener("error", handleError, { once: true });
+      }
+
+      return () => {
+        video.removeEventListener("canplay", handleCanPlay);
+        video.removeEventListener("loadeddata", handleLoadedData);
+        video.removeEventListener("error", handleError);
+      };
     }
   }, []);
 
@@ -50,7 +77,7 @@ export function Hero() {
           loop
           muted
           playsInline
-          onLoadedData={() => setIsVideoLoaded(true)}
+          preload="auto"
         >
           <source src="/videos/1799656_Gift_Wrapping_Box_3840x2160.mp4" type="video/mp4" />
         </video>

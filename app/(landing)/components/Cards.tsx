@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/ui/components/Button";
 import { Modal } from "@/ui/components/Modal";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Gift } from "lucide-react";
 
 interface Tariff {
   id: string;
@@ -154,72 +154,62 @@ export function Cards() {
       <Modal
         isOpen={selectedTariff !== null}
         onClose={() => setSelectedTariff(null)}
-        className="p-0 max-w-6xl w-full mx-2 sm:mx-4"
+        className="p-0 max-w-7xl w-full mx-2 sm:mx-4"
       >
         {selectedTariff && (
-          <div className="flex flex-col lg:grid lg:grid-cols-3">
-            <div className="relative h-[250px] sm:h-[300px] lg:hidden order-1">
-              <div className="relative h-full w-full overflow-hidden bg-[var(--color-cream)]/30 dark:bg-[var(--color-cream)]/20">
+          <div className="flex flex-col lg:flex-row lg:items-stretch">
+            <div className="relative h-[300px] sm:h-[400px] lg:h-auto lg:w-[55%] order-1 flex-shrink-0 lg:aspect-square">
+              <div className="relative h-full w-full bg-[var(--color-cream)]/30 dark:bg-[var(--color-cream)]/20 flex items-center justify-center">
                 <Image
                   src={selectedTariff.image}
                   alt={selectedTariff.title}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                   priority
                 />
               </div>
             </div>
 
-            <div className="p-4 sm:p-6 lg:p-8 flex flex-col lg:col-span-1 order-2">
-              <div className="mb-4 sm:mb-6">
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-3 sm:mb-4">
-                  <h2 className="text-2xl sm:text-3xl font-bold uppercase">{selectedTariff.title}</h2>
-                  <div className="text-right">
-                    {selectedTariff.originalPrice ? (
-                      <div className="flex flex-col items-end gap-1">
-                        <div className="flex items-center gap-2">
-                          <span className="text-sm line-through text-[var(--foreground)]/40">{selectedTariff.originalPrice}</span>
-                          <span className="text-lg sm:text-xl font-bold text-[var(--color-golden)] whitespace-nowrap">{selectedTariff.price}</span>
-                        </div>
-                        {selectedTariff.discount && (
-                          <span className="text-xs text-[var(--color-golden)]">{selectedTariff.discount}</span>
-                        )}
+            <div className="p-6 sm:p-8 lg:p-10 flex flex-col lg:w-[45%] order-2 min-h-[300px] sm:min-h-[400px]">
+              <div className="mb-6">
+                <h2 className="text-3xl sm:text-4xl font-bold uppercase mb-4">{selectedTariff.title}</h2>
+                
+                <div className="mb-6">
+                  {selectedTariff.originalPrice ? (
+                    <div className="flex flex-col gap-2">
+                      <div className="flex items-center gap-3">
+                        <span className="text-lg line-through text-[var(--foreground)]/40">{selectedTariff.originalPrice}</span>
+                        <span className="text-2xl sm:text-3xl font-bold text-[var(--color-golden)]">{selectedTariff.price}</span>
                       </div>
-                    ) : (
-                      <span className="text-lg sm:text-xl font-bold text-[var(--color-golden)] whitespace-nowrap">{selectedTariff.price}</span>
-                    )}
-                  </div>
+                      {selectedTariff.discount && (
+                        <span className="text-sm font-medium text-[var(--color-golden)]">{selectedTariff.discount}</span>
+                      )}
+                    </div>
+                  ) : (
+                    <span className="text-2xl sm:text-3xl font-bold text-[var(--color-golden)]">{selectedTariff.price}</span>
+                  )}
                 </div>
 
-                <p className="text-base sm:text-lg text-[var(--foreground)]/80 mb-4 sm:mb-6">{selectedTariff.fullDescription}</p>
+                <p className="text-base sm:text-lg text-[var(--foreground)]/80 leading-relaxed mb-6">
+                  {selectedTariff.fullDescription}
+                </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 border-t border-[var(--color-cream)]/30 dark:border-[var(--color-cream)]/20 mt-auto">
+              <div className="mt-auto pt-6 border-t border-[var(--color-cream)]/30 dark:border-[var(--color-cream)]/20 space-y-3">
                 <Button 
                   size="lg" 
-                  className="uppercase tracking-widest w-full sm:flex-1 sm:min-w-[200px] group/btn transition-all duration-300 hover:scale-105 hover:shadow-lg text-sm sm:text-base"
+                  className="w-full uppercase tracking-widest group/btn transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
                 >
                   Оформить подписку
                 </Button>
                 <Button
                   variant="outline"
                   size="lg"
-                  onClick={() => setSelectedTariff(null)}
-                  className="uppercase tracking-widest w-full sm:w-auto group/btn transition-all duration-300 hover:scale-105 hover:border-[var(--color-golden)] hover:text-[var(--color-golden)] text-sm sm:text-base"
+                  className="w-full uppercase tracking-widest group/btn transition-all duration-300 hover:scale-[1.02] hover:border-[var(--color-golden)] hover:text-[var(--color-golden)] flex items-center justify-center gap-2"
                 >
-                  Закрыть
+                  <Gift className="w-5 h-5" />
+                  Купить в подарок
                 </Button>
-              </div>
-            </div>
-
-            <div className="hidden lg:block relative h-full min-h-[500px] p-8 lg:col-span-2 order-3">
-              <div className="relative h-full w-full overflow-hidden bg-[var(--color-cream)]/30 dark:bg-[var(--color-cream)]/20">
-                <Image
-                  src={selectedTariff.image}
-                  alt={selectedTariff.title}
-                  fill
-                  className="object-cover"
-                />
               </div>
             </div>
           </div>
