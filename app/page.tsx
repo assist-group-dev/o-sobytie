@@ -75,6 +75,7 @@ export default function LandingPage() {
         </div>
         
         <div
+          className="-mt-px"
           style={{
             opacity: isLoaded ? 1 : 0,
             animation: isLoaded ? `fadeInDown 0.6s ease-out 0.1s both` : "none",
@@ -84,6 +85,7 @@ export default function LandingPage() {
         </div>
         
         <div
+          className="-mt-px"
           style={{
             opacity: isLoaded ? 1 : 0,
             animation: isLoaded ? `fadeInDown 0.6s ease-out 0.2s both` : "none",

@@ -36,10 +36,22 @@ export function Hero() {
         video.addEventListener("error", handleError, { once: true });
       }
 
+      const updateVideoPosition = () => {
+        if (window.innerWidth >= 1024) {
+          video.style.objectPosition = "110% center";
+        } else {
+          video.style.objectPosition = "center center";
+        }
+      };
+
+      updateVideoPosition();
+      window.addEventListener("resize", updateVideoPosition);
+
       return () => {
         video.removeEventListener("canplay", handleCanPlay);
         video.removeEventListener("loadeddata", handleLoadedData);
         video.removeEventListener("error", handleError);
+        window.removeEventListener("resize", updateVideoPosition);
       };
     }
   }, []);
@@ -60,7 +72,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative py-20 lg:py-32 overflow-hidden bg-[var(--color-cream-light)] min-h-[600px] lg:min-h-[700px]">
+    <section className="relative py-10 sm:py-16 lg:py-32 overflow-hidden bg-[var(--color-cream-light)] min-h-[400px] sm:min-h-[600px] lg:min-h-[700px]">
       {/* Video Background - full width behind everything */}
       <div className="absolute inset-0 w-full h-full z-0">
         <video
@@ -70,9 +82,6 @@ export function Hero() {
             "transition-opacity duration-1000 ease-out",
             isVideoLoaded ? "opacity-100" : "opacity-0"
           )}
-          style={{
-            objectPosition: "110% center"
-          }}
           autoPlay
           loop
           muted
@@ -82,33 +91,37 @@ export function Hero() {
           <source src="/videos/1799656_Gift_Wrapping_Box_3840x2160.mp4" type="video/mp4" />
         </video>
         
-        {/* White overlay on video */}
-        <div className="absolute inset-0 bg-[var(--color-cream-light)]/25 z-0" />
+        {/* White overlay on video - более плотный на мобильных */}
+        <div className="absolute inset-0 bg-[var(--color-cream-light)]/40 sm:bg-[var(--color-cream-light)]/30 lg:bg-[var(--color-cream-light)]/25 z-0" />
       </div>
 
-      {/* Solid opaque background on the left with diagonal cut */}
+      {/* Solid opaque background on the left with diagonal cut - скрыт на мобильных */}
       <div 
-        className="absolute inset-0 bg-[var(--color-cream-light)] z-[1]"
+        className="hidden lg:block absolute inset-0 bg-[var(--color-cream-light)] z-[1]"
         style={{
           clipPath: "polygon(0 0, 55% 0, 40% 100%, 0 100%)"
         }}
       />
 
+      {/* Полупрозрачный фон для мобильных */}
+      <div className="lg:hidden absolute inset-0 bg-[var(--color-cream-light)]/85 z-[1]" />
+
       {/* Content */}
-      <div className="container mx-auto px-4 relative z-[2]">
+      <div className="container mx-auto px-4 sm:px-6 relative z-[2]">
         <div className="max-w-3xl">
-          <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-6 animate-in">
+          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight mb-4 sm:mb-6 animate-in">
             О!СОБЫТИЕ — ваша ежемесячная порция "Вау!"
           </h1>
-          <p className="text-xl lg:text-2xl text-[var(--foreground)]/60 mb-8 font-light animate-in" style={{ animationDelay: "0.1s" }}>
+          <p className="text-base sm:text-lg lg:text-2xl text-[var(--foreground)]/70 sm:text-[var(--foreground)]/60 mb-6 sm:mb-8 font-light animate-in leading-relaxed" style={{ animationDelay: "0.1s" }}>
             Надоела рутина? Подари себе О!Событие — коробку с впечатлением, 
-            которое приходит к вам раз в месяц.<br />
-            Откройте и скажите "О!"
+            которое приходит к вам раз в месяц.
+            <span className="hidden sm:inline"><br />Откройте и скажите "О!"</span>
+            <span className="sm:hidden"> Откройте и скажите "О!"</span>
           </p>
-          <div className="flex flex-wrap gap-4 animate-in" style={{ animationDelay: "0.2s" }}>
+          <div className="flex flex-wrap gap-3 sm:gap-4 animate-in" style={{ animationDelay: "0.2s" }}>
             <Button
               size="lg"
-              className="uppercase tracking-widest text-sm"
+              className="uppercase tracking-widest text-xs sm:text-sm w-full sm:w-auto"
               onClick={handleScrollToTariffs}
             >
               Выбрать тариф

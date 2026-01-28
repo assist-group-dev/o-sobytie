@@ -49,10 +49,10 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b transition-all duration-300",
+        "sticky top-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-[var(--background)]/95 backdrop-blur-md border-[var(--color-cream)]/30 dark:border-[var(--color-cream)]/20 shadow-sm"
-          : "bg-[var(--background)]/80 backdrop-blur-sm border-[var(--color-cream)]/20 dark:border-[var(--color-cream)]/10"
+          ? "bg-[var(--background)]/95 backdrop-blur-md shadow-sm"
+          : "bg-[var(--background)]/80 backdrop-blur-sm"
       )}
     >
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
