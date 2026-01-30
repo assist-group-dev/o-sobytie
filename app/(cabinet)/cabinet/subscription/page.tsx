@@ -132,7 +132,7 @@ export default function SubscriptionPage() {
       >
         {selectedTariff && (
           <div className="flex flex-col lg:grid lg:grid-cols-3">
-            <div className="relative h-[250px] sm:h-[300px] lg:hidden order-1">
+            <div className="relative w-full h-[400px] sm:h-[450px] lg:hidden order-1">
               <div className="relative h-full w-full overflow-hidden bg-[var(--color-cream)]/30 dark:bg-[var(--color-cream)]/20">
                 <Image
                   src={selectedTariff.image}

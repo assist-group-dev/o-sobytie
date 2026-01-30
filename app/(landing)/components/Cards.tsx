@@ -154,60 +154,60 @@ export function Cards() {
       <Modal
         isOpen={selectedTariff !== null}
         onClose={() => setSelectedTariff(null)}
-        className="p-0 max-w-7xl w-full mx-2 sm:mx-4"
+        className="p-0 max-w-7xl w-full mx-2 sm:mx-4 max-h-[98vh] sm:max-h-[90vh]"
       >
         {selectedTariff && (
           <div className="flex flex-col lg:flex-row lg:items-stretch">
-            <div className="relative h-[300px] sm:h-[400px] lg:h-auto lg:w-[55%] order-1 flex-shrink-0 lg:aspect-square">
-              <div className="relative h-full w-full bg-[var(--color-cream)]/30 dark:bg-[var(--color-cream)]/20 flex items-center justify-center">
+            <div className="relative w-full h-[400px] sm:h-[450px] lg:h-auto lg:w-[55%] order-1 flex-shrink-0 lg:aspect-square">
+              <div className="relative h-full w-full bg-[var(--color-cream)]/30 dark:bg-[var(--color-cream)]/20">
                 <Image
                   src={selectedTariff.image}
                   alt={selectedTariff.title}
                   fill
-                  className="object-contain"
+                  className="object-cover lg:object-contain"
                   priority
                 />
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 lg:p-10 flex flex-col lg:w-[45%] order-2 min-h-[300px] sm:min-h-[400px]">
-              <div className="mb-6">
-                <h2 className="text-3xl sm:text-4xl font-bold uppercase mb-4">{selectedTariff.title}</h2>
+            <div className="p-4 sm:p-6 lg:p-10 flex flex-col lg:w-[45%] order-2">
+              <div className="mb-2 sm:mb-6">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold uppercase mb-3 sm:mb-4">{selectedTariff.title}</h2>
                 
-                <div className="mb-6">
+                <div className="mb-4 sm:mb-6">
                   {selectedTariff.originalPrice ? (
-                    <div className="flex flex-col gap-2">
-                      <div className="flex items-center gap-3">
-                        <span className="text-lg line-through text-[var(--foreground)]/40">{selectedTariff.originalPrice}</span>
-                        <span className="text-2xl sm:text-3xl font-bold text-[var(--color-golden)]">{selectedTariff.price}</span>
+                    <div className="flex flex-col gap-1.5 sm:gap-2">
+                      <div className="flex items-center gap-2 sm:gap-3">
+                        <span className="text-base sm:text-lg line-through text-[var(--foreground)]/40">{selectedTariff.originalPrice}</span>
+                        <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-[var(--color-golden)]">{selectedTariff.price}</span>
                       </div>
                       {selectedTariff.discount && (
-                        <span className="text-sm font-medium text-[var(--color-golden)]">{selectedTariff.discount}</span>
+                        <span className="text-xs sm:text-sm font-medium text-[var(--color-golden)]">{selectedTariff.discount}</span>
                       )}
                     </div>
                   ) : (
-                    <span className="text-2xl sm:text-3xl font-bold text-[var(--color-golden)]">{selectedTariff.price}</span>
+                    <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-[var(--color-golden)]">{selectedTariff.price}</span>
                   )}
                 </div>
 
-                <p className="text-base sm:text-lg text-[var(--foreground)]/80 leading-relaxed mb-6">
+                <p className="text-sm sm:text-base lg:text-lg text-[var(--foreground)]/80 leading-relaxed mb-0 sm:mb-6">
                   {selectedTariff.fullDescription}
                 </p>
               </div>
 
-              <div className="mt-auto pt-6 border-t border-[var(--color-cream)]/30 dark:border-[var(--color-cream)]/20 space-y-3">
+              <div className="mt-auto pt-2 sm:pt-6 border-t border-[var(--color-cream)]/30 dark:border-[var(--color-cream)]/20 space-y-2 sm:space-y-3">
                 <Button 
                   size="lg" 
-                  className="w-full uppercase tracking-widest group/btn transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+                  className="w-full uppercase tracking-widest text-sm sm:text-base group/btn transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
                 >
                   Оформить подписку
                 </Button>
                 <Button
                   variant="outline"
                   size="lg"
-                  className="w-full uppercase tracking-widest group/btn transition-all duration-300 hover:scale-[1.02] hover:border-[var(--color-golden)] hover:text-[var(--color-golden)] flex items-center justify-center gap-2"
+                  className="w-full uppercase tracking-widest text-sm sm:text-base group/btn transition-all duration-300 hover:scale-[1.02] hover:border-[var(--color-golden)] hover:text-[var(--color-golden)] flex items-center justify-center gap-2"
                 >
-                  <Gift className="w-5 h-5" />
+                  <Gift className="w-4 h-4 sm:w-5 sm:h-5" />
                   Купить в подарок
                 </Button>
               </div>

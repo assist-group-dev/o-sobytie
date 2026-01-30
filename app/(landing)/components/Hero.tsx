@@ -13,9 +13,9 @@ export function Hero() {
     if (video) {
       const handleCanPlay = () => {
         setIsVideoLoaded(true);
-        video.play().catch(() => {
-          // Автовоспроизведение может быть заблокировано браузером
-        });
+      video.play().catch(() => {
+        // Автовоспроизведение может быть заблокировано браузером
+      });
       };
 
       const handleLoadedData = () => {
