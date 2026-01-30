@@ -78,7 +78,7 @@ const TARIFFS: Tariff[] = [
 export function Cards() {
   const [selectedTariff, setSelectedTariff] = useState<Tariff | null>(null);
   return (
-    <section id="tariffs" className="py-20 bg-[var(--background)]">
+    <section id="tariffs" className="pt-12 pb-20 bg-[var(--background)]">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold mb-12 uppercase tracking-wider text-center lg:text-left">
           Тарифы

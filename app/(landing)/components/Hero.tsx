@@ -92,7 +92,7 @@ export function Hero() {
         </video>
         
         {/* White overlay on video - более плотный на мобильных */}
-        <div className="absolute inset-0 bg-[var(--color-cream-light)]/40 sm:bg-[var(--color-cream-light)]/30 lg:bg-[var(--color-cream-light)]/25 z-0" />
+        <div className="absolute inset-0 bg-[var(--color-cream-light)]/20 sm:bg-[var(--color-cream-light)]/30 lg:bg-[var(--color-cream-light)]/25 z-0" />
       </div>
 
       {/* Solid opaque background on the left with diagonal cut - скрыт на мобильных */}
@@ -104,7 +104,7 @@ export function Hero() {
       />
 
       {/* Полупрозрачный фон для мобильных */}
-      <div className="lg:hidden absolute inset-0 bg-[var(--color-cream-light)]/85 z-[1]" />
+      <div className="lg:hidden absolute inset-0 bg-[var(--color-cream-light)]/70 z-[1]" />
 
       {/* Content */}
       <div className="container mx-auto px-4 sm:px-6 relative z-[2]">
